@@ -1,0 +1,142 @@
+{
+  "$schema": "https://docs.oasis-open.org/sarif/sarif/v2.1.0/os/schemas/sarif-schema-2.1.0.json",
+  "runs": [
+    {
+      "invocations": [
+        {
+          "executionSuccessful": true,
+          "toolExecutionNotifications": []
+        }
+      ],
+      "results": [
+        {
+          "fingerprints": {
+            "matchBasedId/v1": "3999ea0ec7ce376f186b9686bbbe41ba4048897cb44c6fb42a178141b2158fc65cb52a40b42ecb488bb53b2bd1770f24694bfb95ccf4fb452cc2eef22c464842_0"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/main/webapp/WEB-INF/jsp/user/index.jsp",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "endColumn": 35,
+                  "endLine": 6,
+                  "snippet": {
+                    "text": "    <div class=\"xss pb-2\">${search}</div>"
+                  },
+                  "startColumn": 29,
+                  "startLine": 6
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "XSS vulnerability Detected.\n"
+          },
+          "ruleId": "semgrep.rules.spring-jsp-reflected-xss"
+        },
+        {
+          "fingerprints": {
+            "matchBasedId/v1": "8187b9d580ad85258780b3374886ff428e1b053a23488d1f88d19af323a4f9c95bbed73d95b69130a4cc0315c695244b1328b3a60fc26b3fe655c0f3a95b5715_0"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/main/webapp/WEB-INF/jsp/user/edit.jsp",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "endColumn": 81,
+                  "endLine": 14,
+                  "snippet": {
+                    "text": "            <input type=\"text\" name=\"address\" id=\"address\" value=\"${user.address}\">"
+                  },
+                  "startColumn": 69,
+                  "startLine": 14
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "XSS vulnerability Detected. \n"
+          },
+          "ruleId": "semgrep.rules.spring-jsp-xss"
+        },
+        {
+          "fingerprints": {
+            "matchBasedId/v1": "ce7cb4edfe402f09ca647a91531623ed36525b6c0ae8245558e513171af21d5796779bfffc5800e314e8199e9c8807238d755a050fcb2853724670a6fc1f8b0d_0"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/main/webapp/WEB-INF/jsp/user/edit.jsp",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "endColumn": 72,
+                  "endLine": 10,
+                  "snippet": {
+                    "text": "            <input type=\"text\" name=\"name\" id=\"name\" value=\"${user.name}\">"
+                  },
+                  "startColumn": 63,
+                  "startLine": 10
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "XSS vulnerability Detected. \n"
+          },
+          "ruleId": "semgrep.rules.spring-jsp-xss"
+        }
+      ],
+      "tool": {
+        "driver": {
+          "name": "semgrep",
+          "rules": [
+            {
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "fullDescription": {
+                "text": "XSS vulnerability Detected. \n"
+              },
+              "id": "semgrep.rules.spring-jsp-xss",
+              "name": "semgrep.rules.spring-jsp-xss",
+              "properties": {
+                "precision": "very-high",
+                "tags": []
+              },
+              "shortDescription": {
+                "text": "XSS vulnerability Detected. \n"
+              }
+            },
+            {
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "fullDescription": {
+                "text": "XSS vulnerability Detected.\n"
+              },
+              "id": "semgrep.rules.spring-jsp-reflected-xss",
+              "name": "semgrep.rules.spring-jsp-reflected-xss",
+              "properties": {
+                "precision": "very-high",
+                "tags": []
+              },
+              "shortDescription": {
+                "text": "XSS vulnerability Detected.\n"
+              }
+            }
+          ],
+          "semanticVersion": "1.2.1"
+        }
+      }
+    }
+  ],
+  "version": "2.1.0"
+}

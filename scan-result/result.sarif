@@ -1,0 +1,209 @@
+{
+  "$schema": "https://docs.oasis-open.org/sarif/sarif/v2.1.0/os/schemas/sarif-schema-2.1.0.json",
+  "runs": [
+    {
+      "invocations": [
+        {
+          "executionSuccessful": true,
+          "toolExecutionNotifications": []
+        }
+      ],
+      "results": [
+        {
+          "fingerprints": {
+            "matchBasedId/v1": "6fddb8a2757139e22bb7aa6a12bf2b5f423f31f6cb5021586fb218d32019f5920e738da3e1e1fd4d1ff2c58c731548c31e58b404f58163b641218f283e9001d2_0"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/main/webapp/WEB-INF/jsp/notused.jsp",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "endColumn": 32,
+                  "endLine": 6,
+                  "snippet": {
+                    "text": "    <div class=\"notused\">${text}</div>"
+                  },
+                  "startColumn": 28,
+                  "startLine": 6
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Detected an Expression Language segment that does not escape output.  This is dangerous because if any data in this expression can be controlled externally,  it is a xss vulnerability. Instead, use the 'escapeXml' function or use the 'out' tag from the JSTL taglib to escape this expression. See https://www.tutorialspoint.com/jsp/jstl_function_escapexml.htm or https://www.tutorialspoint.com/jsp/jstl_core_out_tag.htm for more information."
+          },
+          "ruleId": "semgrep.partial.java-jsp-unescaped-output"
+        },
+        {
+          "fingerprints": {
+            "matchBasedId/v1": "259dc213ba22b30565c389ce8f3a426305c35ac4efefcad528936d52dd24dee36fb34c157a067c2dc90b2b6bfa8f2915f9bfcd925cb8bae29a84f5fc2d4350f0_0"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/main/webapp/WEB-INF/jsp/user/edit.jsp",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "endColumn": 39,
+                  "endLine": 7,
+                  "snippet": {
+                    "text": "    <form action=\"/user/edit/${user.id}\" method=\"post\" enctype=\"application/x-www-form-urlencoded\">"
+                  },
+                  "startColumn": 32,
+                  "startLine": 7
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Detected an Expression Language segment that does not escape output.  This is dangerous because if any data in this expression can be controlled externally,  it is a xss vulnerability. Instead, use the 'escapeXml' function or use the 'out' tag from the JSTL taglib to escape this expression. See https://www.tutorialspoint.com/jsp/jstl_function_escapexml.htm or https://www.tutorialspoint.com/jsp/jstl_core_out_tag.htm for more information."
+          },
+          "ruleId": "semgrep.partial.java-jsp-unescaped-output"
+        },
+        {
+          "fingerprints": {
+            "matchBasedId/v1": "89630ccb2b5372e7f1442e91791110a5fb33d81ad84554026328d4fef38b7fa3ee34c857107a9a650ae3550f793c5b5fb603c57bbcd02e1cb6e1b81339e28e05_0"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/main/webapp/WEB-INF/jsp/user/edit.jsp",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "endColumn": 72,
+                  "endLine": 10,
+                  "snippet": {
+                    "text": "            <input type=\"text\" name=\"name\" id=\"name\" value=\"${user.name}\">"
+                  },
+                  "startColumn": 63,
+                  "startLine": 10
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Detected an Expression Language segment that does not escape output.  This is dangerous because if any data in this expression can be controlled externally,  it is a xss vulnerability. Instead, use the 'escapeXml' function or use the 'out' tag from the JSTL taglib to escape this expression. See https://www.tutorialspoint.com/jsp/jstl_function_escapexml.htm or https://www.tutorialspoint.com/jsp/jstl_core_out_tag.htm for more information."
+          },
+          "ruleId": "semgrep.partial.java-jsp-unescaped-output"
+        },
+        {
+          "fingerprints": {
+            "matchBasedId/v1": "4fb32442db8dcb0df85abdef06ceeeb15189f4c1c8663bbdb35e86d064a4eac229759a08b1eb41a2578ea1027109da1e3d1703c97f5d7e0728ebc8908742a2ac_0"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/main/webapp/WEB-INF/jsp/user/edit.jsp",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "endColumn": 81,
+                  "endLine": 14,
+                  "snippet": {
+                    "text": "            <input type=\"text\" name=\"address\" id=\"address\" value=\"${user.address}\">"
+                  },
+                  "startColumn": 69,
+                  "startLine": 14
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Detected an Expression Language segment that does not escape output.  This is dangerous because if any data in this expression can be controlled externally,  it is a xss vulnerability. Instead, use the 'escapeXml' function or use the 'out' tag from the JSTL taglib to escape this expression. See https://www.tutorialspoint.com/jsp/jstl_function_escapexml.htm or https://www.tutorialspoint.com/jsp/jstl_core_out_tag.htm for more information."
+          },
+          "ruleId": "semgrep.partial.java-jsp-unescaped-output"
+        },
+        {
+          "fingerprints": {
+            "matchBasedId/v1": "7910656bd4b94d81b2b4309931413b87ffae71c3e9adc3b22a77684df9a2d7c0a4d27c5e338572683a5a8c908790da2fddb301e25e110e9941987255829d452b_0"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/main/webapp/WEB-INF/jsp/user/index.jsp",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "endColumn": 35,
+                  "endLine": 6,
+                  "snippet": {
+                    "text": "    <div class=\"xss pb-2\">${search}</div>"
+                  },
+                  "startColumn": 29,
+                  "startLine": 6
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Detected an Expression Language segment that does not escape output.  This is dangerous because if any data in this expression can be controlled externally,  it is a xss vulnerability. Instead, use the 'escapeXml' function or use the 'out' tag from the JSTL taglib to escape this expression. See https://www.tutorialspoint.com/jsp/jstl_function_escapexml.htm or https://www.tutorialspoint.com/jsp/jstl_core_out_tag.htm for more information."
+          },
+          "ruleId": "semgrep.partial.java-jsp-unescaped-output"
+        },
+        {
+          "fingerprints": {
+            "matchBasedId/v1": "5f894be0a63564494aa5a2e3f87bc3451c42aa339c62e41e240c920f9b705292c6d94ed0be0141d65e0bb4c6b914b03929b6356da788c7e6801737f730112666_0"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/main/webapp/WEB-INF/jsp/user/index.jsp",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "endColumn": 30,
+                  "endLine": 11,
+                  "snippet": {
+                    "text": "    <div class=\"notxss\">${now}</div>"
+                  },
+                  "startColumn": 27,
+                  "startLine": 11
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Detected an Expression Language segment that does not escape output.  This is dangerous because if any data in this expression can be controlled externally,  it is a xss vulnerability. Instead, use the 'escapeXml' function or use the 'out' tag from the JSTL taglib to escape this expression. See https://www.tutorialspoint.com/jsp/jstl_function_escapexml.htm or https://www.tutorialspoint.com/jsp/jstl_core_out_tag.htm for more information."
+          },
+          "ruleId": "semgrep.partial.java-jsp-unescaped-output"
+        }
+      ],
+      "tool": {
+        "driver": {
+          "name": "semgrep",
+          "rules": [
+            {
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "fullDescription": {
+                "text": "Detected an Expression Language segment that does not escape output.  This is dangerous because if any data in this expression can be controlled externally,  it is a xss vulnerability. Instead, use the 'escapeXml' function or use the 'out' tag from the JSTL taglib to escape this expression. See https://www.tutorialspoint.com/jsp/jstl_function_escapexml.htm or https://www.tutorialspoint.com/jsp/jstl_core_out_tag.htm for more information."
+              },
+              "id": "semgrep.partial.java-jsp-unescaped-output",
+              "name": "semgrep.partial.java-jsp-unescaped-output",
+              "properties": {
+                "precision": "very-high",
+                "tags": []
+              },
+              "shortDescription": {
+                "text": "Detected an Expression Language segment that does not escape output.  This is dangerous because if any data in this expression can be controlled externally,  it is a xss vulnerability. Instead, use the 'escapeXml' function or use the 'out' tag from the JSTL taglib to escape this expression. See https://www.tutorialspoint.com/jsp/jstl_function_escapexml.htm or https://www.tutorialspoint.com/jsp/jstl_core_out_tag.htm for more information."
+              }
+            }
+          ],
+          "semanticVersion": "1.2.1"
+        }
+      }
+    }
+  ],
+  "version": "2.1.0"
+}
