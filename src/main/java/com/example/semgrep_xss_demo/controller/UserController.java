@@ -1,8 +1,11 @@
 package com.example.semgrep_xss_demo.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,6 +29,7 @@ public class UserController {
             @RequestParam(name = "q", defaultValue = "") String search,
             Model model) {
         model.addAttribute("search", search);
+        model.addAttribute("users", userService.search(search));
         return "user/index";
     }
 
@@ -35,20 +39,30 @@ public class UserController {
     }
 
     @PostMapping(path = { "create" })
-    public String create(@ModelAttribute UserDto userDto, Model model) {
+    public String create(@ModelAttribute @Valid UserDto userDto, BindingResult data, Model model) {
+        if (data.hasErrors()) {
+            return "user/create";
+        }
         User user = userService.create(userDto);
         return "redirect:/user/edit/" + user.getId();
     }
 
     @GetMapping(path = { "edit/{id}" })
     public String edit(@PathVariable(name = "id") Long id, Model model) {
-        User user = userService.find(id);
-        model.addAttribute("user", user);
+        model.addAttribute("user", userService.find(id));
         return "user/edit";
     }
 
     @PostMapping(path = { "edit/{id}" })
-    public String edit(@PathVariable(name = "id") Long id, @ModelAttribute UserDto userDto, Model model) {
+    public String edit(
+            @PathVariable(name = "id") Long id,
+            @Valid @ModelAttribute UserDto userDto,
+            BindingResult data,
+            Model model) {
+        if (data.hasErrors()) {
+            model.addAttribute("user", userService.find(id));
+            return "user/edit";
+        }
         User user = userService.edit(id, userDto);
         return "redirect:/user/edit/" + user.getId();
     }

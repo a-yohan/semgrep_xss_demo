@@ -14,7 +14,7 @@
                 </li>
             </ul>
             <form action="/user" method="get" class="d-flex input-group w-auto">
-                <input name="q" type="search" class="form-control rounded" placeholder="Search"
+                <input name="q" value="${search}" type="search" class="form-control rounded" placeholder="Search"
                     aria-label="Search" aria-describedby="search-addon" />
                 <button type="submit" class="input-group-text border-0" id="search-addon">
                     <i class="fas fa-search"></i>
