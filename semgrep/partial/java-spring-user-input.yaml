@@ -1,0 +1,21 @@
+rules:
+  - id: java-spring-model-add-attribute
+    languages:
+      - java
+    severity: INFO
+    message: PARAM $PARAM VIEWNAME $VIEWNAME
+    patterns:
+      - pattern-inside: |
+          @Controller
+          class $CLASSNAME {
+              ...
+          }
+      - pattern-inside: |
+          $METHODNAME(..., @$REQ(...) String $PARAM, Model $MODEL,...) {
+            ...
+            return "$VIEWNAME"
+          }
+      - metavariable-regex:
+          metavariable: $REQ
+          regex: (RequestBody|PathVariable|RequestParam|ModelAttribute|RequestHeader|CookieValue)
+      - pattern: $MODEL.addAttribute("$INPUT", $PARAM)

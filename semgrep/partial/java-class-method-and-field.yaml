@@ -1,0 +1,14 @@
+rules:
+  - id: java-class-method-and-field
+    patterns:
+      - pattern-inside: |
+          class $CLASSNAME {
+            ...
+          }
+      - pattern-either:
+          - pattern: String $FNAME;
+          - pattern: String $FNAME(...)
+    message: CLASSNAME $CLASSNAME
+    languages:
+      - java
+    severity: INFO

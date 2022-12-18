@@ -1,0 +1,29 @@
+rules:
+  - id: spring-jsp-xss
+    mode: join
+    join:
+      refs:
+        - rule: semgrep/partial/java-spring-model-add-attribute.yaml
+          as: attribute
+        - rule: semgrep/partial/java-class-method-and-field.yaml
+          as: class
+        - rule: semgrep/partial/java-jsp-unescaped-output.yaml
+          as: template
+          renames:
+            - from: '$...VAR'
+              to: '$VAR'
+      on:
+        - "attribute.$TYPE  == class.$CLASSNAME"
+        - "attribute.$INPUT < template.$VAR"
+        - "class.$FNAME < template.$VAR"
+        - "attribute.$VIEWNAME < template.path"
+    paths:
+      include:
+        - "*.java"
+        - "*.jsp"
+        - "*.tag"
+      exclude:
+        - "src/test"
+    message: |
+      XSS vulnerability Detected. 
+    severity: ERROR

@@ -1,0 +1,28 @@
+rules:
+  - id: java-spring-model-add-attribute
+    languages:
+      - java
+    severity: INFO
+    message: TYPE $TYPE OBJ $OBJ INPUT $INPUT
+    patterns:
+      - pattern-inside: |
+          @Controller
+          class $CLASSNAME {
+            ...
+          }
+      - pattern-inside: |
+          $METHODNAME(..., Model $MODEL,...) {
+            ...
+          }
+      - pattern-either:
+          - pattern: |
+              $MODEL.addAttribute("$INPUT",($TYPE $OBJ).$CALLER(...));
+              ...
+              return "$VIEWNAME";
+          - pattern: |
+              $MODEL.addAttribute("$INPUT",($TYPE $OBJ));
+              ...
+              return "$VIEWNAME";
+      - metavariable-regex:
+          metavariable: $TYPE
+          regex: (?!Integer|Long|BigInteger|BigDecimal|Number|Date|int|long)

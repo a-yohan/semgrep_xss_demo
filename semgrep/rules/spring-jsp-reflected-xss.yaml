@@ -1,0 +1,25 @@
+rules:
+  - id: spring-jsp-reflected-xss
+    mode: join
+    join:
+      refs:
+        - rule: semgrep/partial/java-spring-user-input.yaml
+          as: request
+        - rule: semgrep/partial/java-jsp-unescaped-output.yaml
+          as: template
+          renames:
+            - from: '$...VAR'
+              to: '$VAR'
+      on:
+        - "request.$INPUT == template.$VAR"
+        - "request.$VIEWNAME < template.path"
+    paths:
+      include:
+        - "*.java"
+        - "*.jsp"
+        - "*.tag"
+      exclude:
+        - "src/test"
+    message: |
+      XSS vulnerability Detected.
+    severity: ERROR

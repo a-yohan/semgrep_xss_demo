@@ -1,5 +1,5 @@
 rules:
-  - id: unescaped-output
+  - id: java-jsp-unescaped-output
     message: >-
       Detected an Expression Language segment that does not escape output. 
       This is dangerous because if any data in this expression can be controlled externally, 
