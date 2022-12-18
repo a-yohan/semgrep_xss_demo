@@ -1,0 +1,57 @@
+{
+  "$schema": "https://docs.oasis-open.org/sarif/sarif/v2.1.0/os/schemas/sarif-schema-2.1.0.json",
+  "runs": [
+    {
+      "invocations": [
+        {
+          "executionSuccessful": true,
+          "toolExecutionNotifications": []
+        }
+      ],
+      "results": [],
+      "tool": {
+        "driver": {
+          "name": "semgrep",
+          "rules": [
+            {
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "fullDescription": {
+                "text": "XSS vulnerability Detected. \n"
+              },
+              "id": "semgrep.rules.spring-jsp-xss",
+              "name": "semgrep.rules.spring-jsp-xss",
+              "properties": {
+                "precision": "very-high",
+                "tags": []
+              },
+              "shortDescription": {
+                "text": "XSS vulnerability Detected. \n"
+              }
+            },
+            {
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "fullDescription": {
+                "text": "XSS vulnerability Detected.\n"
+              },
+              "id": "semgrep.rules.spring-jsp-reflected-xss",
+              "name": "semgrep.rules.spring-jsp-reflected-xss",
+              "properties": {
+                "precision": "very-high",
+                "tags": []
+              },
+              "shortDescription": {
+                "text": "XSS vulnerability Detected.\n"
+              }
+            }
+          ],
+          "semanticVersion": "1.2.1"
+        }
+      }
+    }
+  ],
+  "version": "2.1.0"
+}
